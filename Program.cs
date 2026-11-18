@@ -35,4 +35,67 @@ for (int ticket = 1; ticket <= 30; ticket++)
     Console.WriteLine($"Первый доступный билет: {ticket}");
     Console.WriteLine($"Пропущено билетов: {skipped}");
     break;
+}
+for (; ; )
+{
+    Console.Write("Введите код группы (для выхода — «выход»): ");
+    string groupCode = Console.ReadLine();
+
+    if (groupCode == "выход")
+    {
+        break;
+    }
+
+    Console.WriteLine($"Записан код группы: {groupCode}");
+}
+
+Console.WriteLine("Работа с журналом завершена");
+
+
+int N = 15;
+
+for (int i = 1; i <= N; i += 2)
+{
+    Console.WriteLine(i);
+}
+
+for (int i = 100; i >= 0; i -= 10)
+{
+    Console.WriteLine(i);
+}
+Console.Write("Введите свою фамилию: ");
+string surname = Console.ReadLine()!.Trim();
+if (string.IsNullOrEmpty(surname)) {
+Console.WriteLine("Фамилия не введена. Завершение работы.");
+return;
+}
+Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+var assigned = Enumerable.Range(1, 10)
+.OrderBy(_ => rnd.Next())
+.Take(2)
+.OrderBy(x => x)
+.ToList();
+Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+for (int a = 1; a <= 5; a++)
+{
+    for (int b = 1; b <= 5; b++)
+    {
+        Console.WriteLine($"{a} + {b} = {a + b}");
+    }
 }*/
+
+int N = 20;
+int sum = 0;
+
+for (int i = 1; i <= N; i++)
+{
+    if (i % 5 == 0)
+    {
+        continue;
+    }
+
+    sum += i;
+}
+
+Console.WriteLine($"Сумма чисел от 1 до {N} без кратных 5: {sum}");
